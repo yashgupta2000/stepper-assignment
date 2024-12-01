@@ -2,8 +2,16 @@ import React from 'react';
 import Heading from './Heading';
 import SubHeading from './SubHeading';
 import Footer from './Footer';
+import { useSelector } from 'react-redux';
 
 export default function Summary() {
+
+
+    const selectedPlan = useSelector((store)=>store.selectPlan.plan);
+    const selectedBilling = useSelector((store)=>store.selectPlan.billing);
+    console.log(selectedPlan);
+    console.log(selectedBilling);
+
     return (
         <div>
             <Heading text="Finishing up" />
