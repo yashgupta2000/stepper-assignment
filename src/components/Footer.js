@@ -1,9 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { checkValidate } from '../utils/validate';
+import { useSelector } from 'react-redux';
 
 export default function Footer({ formIndex, name, email, phone, setError }) {
     const navigate = useNavigate();
+
+
+    const selectedPlan = useSelector((store) => store.selectPlan.plan);
+    const selectedBilling = useSelector((store) => store.selectPlan.billing);
+    const selectedAddOns = useSelector((store) => store.addOns.addOns);
+    // console.log(`check` + selectedAddOns);
 
     const handleNextStep = () => {
 
@@ -17,18 +24,33 @@ export default function Footer({ formIndex, name, email, phone, setError }) {
                 navigate('/select-plan');
             }
         } else if (formIndex === 2) {
-            navigate('/add-ons');
+            if (selectedPlan == null) {
+                alert('Select at leat 1 plan!')
+            }
+            else (
+                navigate('/add-ons')
+            )
+
         } else if (formIndex === 3) {
-            navigate('/summary');
+            if (selectedAddOns.length == 0) {
+                alert('Select at least 1 add on')
+            }
+            else {
+                navigate('/summary');
+            }
+
         }
+    };
+    const handleGoBack = () => {
+        navigate(-1);
     };
     return (
         <div className="flex justify-around  bg-white py-2  w-full fixed bottom-0  md:w-full lg:w-3/4 right-0 ">
-            <button className="text-gray-600">Go Back</button>
+            <button onClick={handleGoBack} className="text-gray-600">{formIndex === 1 ? null : 'Go Back'}</button>
 
 
             <button className='bg-blue-950 text-white px-3 py-1 rounded-md' onClick={handleNextStep}>
-                Next Step
+                {formIndex == 4 ? "Submit" : "Next Step"}
             </button>
         </div>
     );
