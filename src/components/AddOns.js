@@ -1,6 +1,7 @@
 import React from 'react'
 import Heading from './Heading';
 import SubHeading from './SubHeading';
+import Footer from './Footer';
 
 export default function AddOns() {
     return (
@@ -8,8 +9,8 @@ export default function AddOns() {
 
             <Heading text="Pick add-ons" />
             <SubHeading text="Add-ons help enhance your gaming experience." />
-            <div className='flex flex-col items-center w-full px-8'>
-                <div className='flex border-2 lg:w-2/4 sm:w-full md:w-full border-gray-300 p-4 rounded-md mt-4  hover:bg-gray-100 cursor-pointer hover:border-blue-500'>
+            <div className='w-full md:w-2/3 lg:w-2/3 lg:px-0 px-4  m-auto flex flex-col items-center'>
+                <div className='flex border-2 w-full border-gray-300 p-4 rounded-md mt-4  hover:bg-gray-100 cursor-pointer hover:border-blue-500'>
                     <input
                         type="checkbox"
                         name="onlineService"
@@ -23,7 +24,7 @@ export default function AddOns() {
                     <div className='flex items-center text-blue-500 font-medium' ><p >+2$/mo</p></div>
                 </div>
 
-                <div className='flex border-2 lg:w-2/4 sm:w-full md:w-full border-gray-300 p-4 rounded-md mt-4  hover:bg-gray-100 cursor-pointer hover:border-blue-500'>
+                <div className='flex border-2 w-full border-gray-300 p-4 rounded-md mt-4  hover:bg-gray-100 cursor-pointer hover:border-blue-500'>
                     <input
                         type="checkbox"
                         name="onlineService"
@@ -37,7 +38,7 @@ export default function AddOns() {
                     <div className='flex items-center text-blue-500 font-medium' ><p >+2$/mo</p></div>
                 </div>
 
-                <div className='flex border-2 lg:w-2/4 sm:w-full md:w-full border-gray-300 p-4 rounded-md mt-4  hover:bg-gray-100 cursor-pointer hover:border-blue-500'>
+                <div className='flex border-2 w-full border-gray-300 p-4 rounded-md mt-4  hover:bg-gray-100 cursor-pointer hover:border-blue-500'>
                     <input
                         type="checkbox"
                         name="onlineService"
@@ -51,6 +52,7 @@ export default function AddOns() {
                     <div className='flex items-center text-blue-500 font-medium' ><p >+2$/mo</p></div>
                 </div>
             </div>
+            <Footer formIndex={3}/>
 
         </div>
     )

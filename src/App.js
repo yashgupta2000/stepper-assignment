@@ -10,8 +10,8 @@ function App() {
 
   const appRouter = createBrowserRouter([{path:'/', element:<Wrapper/>, children:[
     {index:true, element:<PersonalInfo/>},
-    {path:'selectplan', element:<SelectPlan/>},
-    {path:'addons', element:<AddOns/>},
+    {path:'select-plan', element:<SelectPlan/>},
+    {path:'add-ons', element:<AddOns/>},
     {path:'summary', element:<Summary/>}
   ]}]) 
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import Heading from './Heading';
 import SubHeading from './SubHeading';
+import Footer from './Footer';
 
 
 export default function SelectPlan() {
@@ -29,38 +30,46 @@ export default function SelectPlan() {
         price: '$15 m/o',
         bgColor: "bg-blue-500"
     },
-]
+    ]
     return (
-        <div>
-            <Heading text="Select your plan" />
-            <SubHeading text="You have option of monthly or yearly billing." />
-            
-            <div className='  flex justify-center  mt-16 gap-4 flex-wrap'>
+        <div className='flex flex-col h-screen'>
+            <div className='flex-grow overflow-y-auto p-4'>
+                <Heading text="Select your plan" />
+                <SubHeading text="You have option of monthly or yearly billing." />
 
-                {
-                    Datas?.map((item) => (
-                        <div className='border-2 rounded-md border-gray-300 w-60 py-5 hover:border-blue-500 hover:bg-gray-100 cursor-pointer'>
-                            <div className='ml-3'>
-                                <div className={` ${item.bgColor} p-2  rounded-full flex justify-center items-center w-12 h-12`}>
-                                    {item.icon}
-                                </div>
-                                <div className='mt-12 text-left'>
-                                    <p className='text-xl font-medium'>{item.name}</p>
-                                    <p className='text-gray-600 text-sm'>{item.price}</p>
+                <div className='  flex justify-between m-auto mt-16 gap-4 flex-wrap w-full md:w-2/3 lg:w-2/3 px-4 lg:px-0'>
+
+                    {
+                        Datas?.map((item) => (
+                            <div className="border-2 rounded-md border-gray-300 w-full md:w-3/12 py-5 hover:border-blue-500 hover:bg-gray-100 cursor-pointer ">
+                                <div className="flex flex-col px-4">
+                                    <div className="flex  md:flex-col">
+                                        <div
+                                            className={` ${item.bgColor} p-2 rounded-full flex justify-center items-center w-12 h-12`}
+                                        >
+                                            {item.icon}
+                                        </div>
+                                        <div className="md:mt-12 flex flex-col ml-4 lg:ml-0 md:ml-0">
+                                            <p className="text-xl text-left font-medium  ">{item.name}</p>
+                                            <p className="text-gray-600 text-left text-sm  md:ml-0">{item.price}</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))
-                }
+
+
+                        ))
+                    }
+                </div>
+                <div className='flex w-2/3 justify-center gap-4 m-auto rounded-md p-3 bg-gray-100   mt-6'>
+                    <p className='font-medium'>Monthly</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width={30} viewBox="0 0 576 512"><path d="M192 64C86 64 0 150 0 256S86 448 192 448l192 0c106 0 192-86 192-192s-86-192-192-192L192 64zm192 96a96 96 0 1 1 0 192 96 96 0 1 1 0-192z" /></svg>
+                    <p>Yearly</p>
+                </div>
             </div>
-            <div className='flex w-2/3 justify-center gap-4 m-auto rounded-md p-3 bg-gray-100  mt-6'>
-                <p className='font-medium'>Monthly</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width={30} viewBox="0 0 576 512"><path d="M192 64C86 64 0 150 0 256S86 448 192 448l192 0c106 0 192-86 192-192s-86-192-192-192L192 64zm192 96a96 96 0 1 1 0 192 96 96 0 1 1 0-192z" /></svg>
-                <p>Yearly</p>
-            </div>
 
 
-
+            <Footer formIndex={2} />
         </div>
     )
 }
