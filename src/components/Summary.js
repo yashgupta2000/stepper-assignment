@@ -58,7 +58,7 @@ export default function Summary() {
                             <p onClick={handleChangePlan} className='text-gray-600 text-xs text-left underline cursor-pointer'>Change</p>
                         </div>
                         <div className='flex items-center font-medium'>
-                            <p> {selectedBilling === 'Yearly' ? (`$ ${selectedPlan.price * 10}/yr`) : `${selectedPlan.price}/mo`} </p>
+                            <p> {selectedBilling === 'Yearly' ? (`$${selectedPlan.price * 10}/yr`) : `${selectedPlan.price}/mo`} </p>
                         </div>
                     </div>
                     <hr class="border-t mt-4 mb-4 border-gray-300" />
