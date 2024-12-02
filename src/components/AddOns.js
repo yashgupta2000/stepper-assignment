@@ -6,43 +6,49 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectAddOns } from '../utils/pickAddOnsSlice';
 
 export default function AddOns() {
+    const dispatchAddOns = useDispatch();
 
+    //State
     const [selectCard, setSelectCard] = useState([]);
     const [selectedAddOns, setSelectedAddOns] = useState([]);
+
+    //JSON Data
     const Datas = [
         { id: 1, name: 'Online service', description: 'Access to multiple games', price: 2 },
         { id: 2, name: 'Larger storage', description: 'Extra 1TB of cloud save', price: 3 },
         { id: 3, name: 'Custom profile', description: 'Customizable profile options', price: 4 },
     ];
-    const dispatchAddOns = useDispatch();
-
+    
+    //Subscribing to store
     const reduxSelectedAddOns = useSelector((store) => store.addOns.addOns);
-    // console.log('reduxSelectedAddOns', reduxSelectedAddOns);
+    const selectedBilling = useSelector((store) => store.selectPlan.billing);
 
+   // functions
     const handleSelectBox = (id, item) => {
 
-        setSelectCard((prev) => prev.includes(id) ? prev.filter((items) => id != items) : [...prev, id]) //[1,2,3]=>[1] - 
+        setSelectCard((prev) => prev.includes(id) ? prev.filter((items) => id !== items) : [...prev, id]) //[1,2,3]=>[1] - 
         setSelectedAddOns((prev) =>
             prev.some((selectedItem) => selectedItem.id === item.id)
                 ? prev.filter((selectedItem) => selectedItem.id !== item.id)
                 : [...prev, item]
         );
     }
-
+    
+    //useEffect
     useEffect(() => {
         const selectedIds = reduxSelectedAddOns.map((item) => item.id);
-        // console.log('selected IDS', selectedIds);
-        // dispatchAddOns(selectAddOns(selectedIds));
-        if (reduxSelectedAddOns.length > 0) {
+
+        if (reduxSelectedAddOns?.length > 0) {
             setSelectCard(selectedIds);
             setSelectedAddOns(reduxSelectedAddOns);
         }
     }, [reduxSelectedAddOns]);
 
     useEffect(() => {
-        // console.log('Dispat', selectedAddOns);
         dispatchAddOns(selectAddOns(selectedAddOns));
     }, [selectedAddOns, dispatchAddOns]);
+
+    //JSX
     return (
         <div className='w-full'>
 
@@ -52,7 +58,7 @@ export default function AddOns() {
 
                 {
                     Datas?.map((item) => (
-                        <div key={item.id} className={` flex border-2 w-full  p-4 rounded-md mt-4  hover:bg-gray-100 cursor-pointer hover:border-blue-500 ${selectCard.includes(item.id) ? 'border-blue-500' : 'border-gray-300'}`}>
+                        <div key={item.id} className={` flex border-2 w-full  lg:p-4 md:p-4 sm:p-4 p-3 rounded-md mt-4  hover:bg-gray-100 cursor-pointer hover:border-blue-500 ${selectCard.includes(item.id) ? 'border-blue-500' : 'border-gray-300'}`}>
                             <input
                                 type="checkbox"
                                 name={item.name}
@@ -65,13 +71,13 @@ export default function AddOns() {
                                 <p className='text-gray-600 text-sm font-medium'>{item.description}</p>
 
                             </div>
-                            <div className='flex items-center text-blue-500 font-medium' ><p >+${item.price}/mo</p></div>
+                            <div className='flex items-center text-blue-500 font-medium' ><p >${ selectedBilling === 'Monthly' ? `${item.price}/mo` :`${item.price * 10}/yr`}</p></div>
                         </div>
                     ))
                 }
 
             </div>
-            <Footer formIndex={3} />
+            <Footer/>
 
         </div>
     )

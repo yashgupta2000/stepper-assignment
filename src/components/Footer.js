@@ -9,31 +9,30 @@ export default function Footer({ name, email, phone, setError }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-
-
+   //Subscribe to store
     const selectedPlan = useSelector((store) => store.selectPlan.plan);
-    // const selectedBilling = useSelector((store) => store.selectPlan.billing);
     const selectedAddOns = useSelector((store) => store.addOns.addOns);
     const formIndex = useSelector((store) => store.form.formIndex);
-    console.log(`formIndex` + formIndex);
-
+   
+   //Functions
+   //Next button navigation
     const handleNextStep = () => {
 
         if (formIndex === 1) {
-            const error = checkValidate(name.current.value, email.current.value, phone.current.value);
-            // console.log(error);
+            const error = checkValidate(name, email, phone);
+
             if (error) {
                 setError(error)
             }
             else {
-                const userData = { name: name.current.value, email: email.current.value, phone: phone.current.value };
+                const userData = { name: name, email: email, phone: phone };
                 dispatch(formDetails({ userData }));
                 dispatch(setFormIndex(2));
 
                 navigate('/select-plan');
             }
         } else if (formIndex === 2) {
-            if (selectedPlan == null) {
+            if (selectedPlan === null) {
                 alert('Select at leat 1 plan!')
             }
             else {
@@ -42,16 +41,20 @@ export default function Footer({ name, email, phone, setError }) {
             }
 
         } else if (formIndex === 3) {
-            if (selectedAddOns.length == 0) {
+            if (selectedAddOns.length === 0) {
                 alert('Select at least 1 add on')
             }
             else {
                 dispatch(setFormIndex(4));
                 navigate('/summary');
             }
-
+        }
+        else if(formIndex===4){
+            alert('Form submitted successfully! You can check data in console')
         }
     };
+
+    //Go back navigatiion
     const handleGoBack = () => {
         
         if (formIndex === 2) {
@@ -64,15 +67,16 @@ export default function Footer({ name, email, phone, setError }) {
             dispatch(setFormIndex(3)); 
             navigate('/add-ons'); 
         }
+       
     };
     
+    //JSX
     return (
-        <div className="flex justify-around  bg-white py-2  w-full fixed bottom-0  md:w-full lg:w-3/4 right-0 ">
-            <button onClick={handleGoBack} className="text-gray-600">{formIndex === 1 ? null : 'Go Back'}</button>
+        <div className="flex justify-around lg:pb-5 pb-3 pt-3 bg-white py-2  w-full fixed bottom-0  md:w-full lg:w-3/4 right-0 ">
+            <button onClick={handleGoBack} className="text-gray-600 lg:text-base md:text-base sm:text-sm text-sm">{formIndex === 1 ? null : 'Go Back'}</button>
 
-
-            <button className='bg-blue-950 text-white px-3 py-1 rounded-md' onClick={handleNextStep}>
-                {formIndex == 4 ? "Submit" : "Next Step"}
+            <button className='bg-blue-950 text-white lg:px-6 lg:py-2 md:px-5 md:py-2 sm:px-5 sm:py-2  px-4 py-1  font-medium rounded-md' onClick={handleNextStep}>
+                {formIndex === 4 ? "Submit" : "Next Step"}
             </button>
         </div>
     );
