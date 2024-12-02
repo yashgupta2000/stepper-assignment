@@ -12,7 +12,7 @@ const choosePlanSlice = createSlice({
             index: 0,
             bgColor: "bg-orange-400"
         },
-        billing: null
+        billing: 'Monthly'
     },
     reducers: {
         choosePlan: (state, action) => {

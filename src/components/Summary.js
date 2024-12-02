@@ -45,6 +45,7 @@ export default function Summary() {
 
     }, [selectedAddOns, selectedPlan]);
 
+
     //JSX
     return (
         <div>

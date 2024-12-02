@@ -4,6 +4,7 @@ import SubHeading from './SubHeading';
 import Footer from './Footer';
 import { useSelector } from 'react-redux';
 
+
 export default function PersonalInfo() {
     //State
     const [formData, setFormData] = useState({

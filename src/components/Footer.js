@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { checkValidate } from '../utils/validate';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,7 +28,6 @@ export default function Footer({ name, email, phone, setError }) {
                 const userData = { name: name, email: email, phone: phone };
                 dispatch(formDetails({ userData }));
                 dispatch(setFormIndex(2));
-
                 navigate('/select-plan');
             }
         } else if (formIndex === 2) {
@@ -69,7 +68,11 @@ export default function Footer({ name, email, phone, setError }) {
         }
        
     };
-    
+    useEffect(() => {
+        if (formIndex === 1 || formIndex === undefined) {
+            navigate('/');
+        } 
+    }, [formIndex, navigate]);
     //JSX
     return (
         <div className="flex justify-around lg:pb-5 pb-3 pt-3 bg-white py-2  w-full fixed bottom-0  md:w-full lg:w-3/4 right-0 ">

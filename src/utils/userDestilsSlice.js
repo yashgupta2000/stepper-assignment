@@ -8,7 +8,7 @@ const userDetailsSlice = createSlice({
     ,
     reducers: {
         formDetails: (state, action) => {
-            // console.log("Payload received:", action.payload);
+            console.log("Payload received:", action.payload);
             state.userDetails = action.payload.userData;;
         }
     }
