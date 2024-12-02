@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Stepper
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a step-by-step form application with four parts where users can:
+- Enter personal details.
+- Choose a plan (monthly or yearly).
+- Pick extra features (add-ons).
+- Review everything before confirming.
 
-## Available Scripts
+The app makes sure:
+- Users get alerts for missing or incorrect inputs.
+- It’s easy to go back and make changes.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+1. **Step-by-Step Form**:
+   - **Personal Info**: Enter your details.
+   - **Choose a Plan**: Pick a plan with radio buttons.
+   - **Add Features**: Select add-ons with checkboxes.
+   - **Summary**: See all choices before confirming.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Input Validation**:
+   - Alerts for missing fields or invalid email.
+   - Prompts if you try to proceed without making a choice.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. **Cost Updates**:
+   - Yearly plans are `10 × monthly cost`.
+   - Add-on prices update based on the chosen plan.
 
-### `npm test`
+4. **Easy Navigation**:
+   - Use **Next** and **Back** buttons to move between steps.
+   - Click step numbers to go back and edit.
+   - Move forward only with the **Next** button.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. **Responsive Design**:
+   - Works well on both mobile and desktop.
 
-### `npm run build`
+6. **Confirmation**:
+   - Shows a final alert after submission.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Before you run the app, make sure you have the following installed:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Node.js** (Recommended: LTS version)  
+- **npm** (Comes bundled with Node.js)
 
-### `npm run eject`
+To check if Node.js and npm are installed, run these commands in your terminal:  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+ node -v
+```
+```
+ npm -v
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you don't have Node.js and npm installed, you can download and install them from here.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Installation
+To get started with this project, follow these steps:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository (if you haven't already):
+  
+   ```
+   git clone https://github.com/yashgupta2000/stepper-assignment.git
+   ```
+   ```
+   cd my-app
+    ```
 
-## Learn More
+2. Install dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    ```
+    npm install 
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This will install the packages listed in `package.json`, including:  
+- **React** and **React-DOM**: For creating the user interface.
+- **Redux**: To manage shared app data and keep it consistent across steps.
+- **React Router DOM**: For handling app navigation.
+- **FontAwesome**: For icons.
+- **Tailwind CSS**: For modern, utility-first styling.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Start the Development Server
+ ```
+ npm start
+```
+Finally, start the React development server: 
