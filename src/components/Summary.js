@@ -57,16 +57,6 @@ export default function Summary() {
                         ))}
 
                     </div>
-
-                    {/* <div className='flex justify-between mt-3'>
-                        
-                        <div>
-                            <p className='text-gray-600 text-sm'>Large storage</p>
-                        </div>
-                        <div className='flex items-center'>
-                            <p className='text-sm'>+$9/mo</p>
-                        </div>
-                    </div> */}
                 </div>
             </div>
             <div className='flex justify-between w-full md:w-2/3 lg:w-2/3 p-4 m-auto  mt-8'>

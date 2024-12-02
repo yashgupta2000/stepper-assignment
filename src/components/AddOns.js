@@ -31,7 +31,7 @@ export default function AddOns() {
 
     useEffect(() => {
         const selectedIds = reduxSelectedAddOns.map((item) => item.id);
-        console.log('selected IDS', selectedIds);
+        // console.log('selected IDS', selectedIds);
         // dispatchAddOns(selectAddOns(selectedIds));
         if (reduxSelectedAddOns.length > 0) {
             setSelectCard(selectedIds);

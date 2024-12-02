@@ -62,11 +62,11 @@ export default function SelectPlan() {
     const selectedBilling = useSelector((store) => store.selectPlan.billing);
     return (
         <div className='flex flex-col h-screen'>
-            <div className='flex-grow overflow-y-auto p-4'>
+            <div className='flex-grow overflow-y-auto '>
                 <Heading text="Select your plan" />
                 <SubHeading text="You have option of monthly or yearly billing." />
 
-                <div className='  flex justify-between m-auto mt-16 gap-4 flex-wrap w-full md:w-2/3 lg:w-2/3 px-4 lg:px-0'>
+                <div className='  flex justify-between m-auto mt-5 gap-4 flex-wrap w-full md:w-2/3 lg:w-2/3 px-4 lg:px-0'>
 
                     {
                         Datas?.map((item) => (
@@ -91,7 +91,7 @@ export default function SelectPlan() {
                         ))
                     }
                 </div>
-                <div className='flex w-2/3 justify-center gap-4 m-auto rounded-md p-3 bg-gray-100   mt-6'>
+                <div className='flex w-2/3 justify-center gap-4 m-auto rounded-md p-3 bg-gray-100 mb-6   mt-6'>
                     <p className='font-medium'>Monthly</p>
                     {selectedBilling === 'Monthly' ?
                         <svg onClick={toggleBilling} xmlns="http://www.w3.org/2000/svg" width={30} viewBox="0 0 576 512"><path d="M384 128c70.7 0 128 57.3 128 128s-57.3 128-128 128l-192 0c-70.7 0-128-57.3-128-128s57.3-128 128-128l192 0zM576 256c0-106-86-192-192-192L192 64C86 64 0 150 0 256S86 448 192 448l192 0c106 0 192-86 192-192zM192 352a96 96 0 1 0 0-192 96 96 0 1 0 0 192z" /></svg>
