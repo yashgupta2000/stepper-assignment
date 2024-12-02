@@ -3,7 +3,7 @@ import Heading from './Heading';
 import SubHeading from './SubHeading';
 import Footer from './Footer';
 import { useDispatch, useSelector } from 'react-redux';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { setFormIndex } from '../utils/formsSlice';
 
 export default function Summary() {
@@ -15,26 +15,26 @@ export default function Summary() {
     const selectedPlan = useSelector((store) => store.selectPlan.plan);// Arcade- 9$
     const selectedBilling = useSelector((store) => store.selectPlan.billing);// monthly or yearly * 10
     const selectedAddOns = useSelector((store) => store.addOns.addOns);// extra services
-     
+
     //state
     const [montlyTotalPrice, setMonthlyTotalPrice] = useState(0);
     const [yearlyTotalPrice, setYearlyTotalPrice] = useState(0);
-     
+
 
     //console form data
-    const addOnsPlan = selectedAddOns.map((item)=>item.name)
-    console.log('Plan:',`${selectedPlan.name} (${selectedBilling})` );
-    console.log('Add-ons:',`${addOnsPlan}` );
-    console.log('Final price:',`${selectedBilling === 'Yearly'? `$${montlyTotalPrice*10}/yr `: `$${montlyTotalPrice}/mo `}` );
+    const addOnsPlan = selectedAddOns.map((item) => item.name)
+    console.log('Plan:', `${selectedPlan.name} (${selectedBilling})`);
+    console.log('Add-ons:', `${addOnsPlan}`);
+    console.log('Final price:', `${selectedBilling === 'Yearly' ? `$${montlyTotalPrice * 10}/yr ` : `$${montlyTotalPrice}/mo `}`);
 
-    
+
 
     //functions
     const handleChangePlan = () => {
         dispatch(setFormIndex(2))
         navigate('/select-plan')
     }
-    
+
     //useEffect
     useEffect(() => {
         const priceArr = selectedAddOns?.map((item) => item?.price);
@@ -58,7 +58,9 @@ export default function Summary() {
                             <p onClick={handleChangePlan} className='text-gray-600 text-xs text-left underline cursor-pointer'>Change</p>
                         </div>
                         <div className='flex items-center font-medium'>
-                            <p> {selectedBilling === 'Yearly' ? (`$${selectedPlan.price * 10}/yr`) : `${selectedPlan.price}/mo`} </p>
+                            <p>
+                                {selectedBilling === 'Yearly'  ? `$${selectedPlan.price * 10}/yr` : `$${selectedPlan.price}/mo`}
+                            </p>
                         </div>
                     </div>
                     <hr class="border-t mt-4 mb-4 border-gray-300" />
@@ -86,7 +88,7 @@ export default function Summary() {
                     <p className='text-blue-700 font-bold lg:text-xl md:text-xl sm:text-xl text-lg'>${selectedBilling === 'Yearly' ? `${yearlyTotalPrice}/yr` : `${montlyTotalPrice}/mo`}</p>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }
