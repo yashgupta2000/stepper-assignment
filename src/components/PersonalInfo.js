@@ -1,4 +1,4 @@
-import React, { isValidElement, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import Heading from './Heading';
 import SubHeading from './SubHeading';
 import Footer from './Footer';
