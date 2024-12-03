@@ -71,7 +71,7 @@ export default function SelectPlan() {
 
                     {
                         Datas?.map((item) => (
-                            <div onClick={() => handleSelectPlan(item)} className={`rounded-md border-2 w-full md:w-3/12 lg:py-5 py-3 mb-4 cursor-pointer ${selectedPlan?.index === item.index ? 'border-blue-500 bg-gray-100' : 'border-gray-300 hover:border-blue-500 hover:bg-gray-100'
+                            <div onClick={() => handleSelectPlan(item)} className={`rounded-md border-2 w-full md:w-3/12 lg:py-5 py-3 mb-4 lg:hover:border-blue-500 cursor-pointer ${selectedPlan?.index === item.index ? 'border-blue-500 bg-gray-100' : 'border-gray-300 '
                                 }`}>
                                 <div className={`flex flex-col px-4`}>
                                     <div className="flex  md:flex-col">

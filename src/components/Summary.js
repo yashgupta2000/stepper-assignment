@@ -15,6 +15,8 @@ export default function Summary() {
     const selectedPlan = useSelector((store) => store.selectPlan.plan);// Arcade- 9$
     const selectedBilling = useSelector((store) => store.selectPlan.billing);// monthly or yearly * 10
     const selectedAddOns = useSelector((store) => store.addOns.addOns);// extra services
+    const userDetails = useSelector((store)=>store.details.userDetails)// user obj {}
+    console.log(userDetails);
 
     //state
     const [montlyTotalPrice, setMonthlyTotalPrice] = useState(0);
@@ -26,7 +28,8 @@ export default function Summary() {
     console.log('Plan:', `${selectedPlan.name} (${selectedBilling})`);
     console.log('Add-ons:', `${addOnsPlan}`);
     console.log('Final price:', `${selectedBilling === 'Yearly' ? `$${montlyTotalPrice * 10}/yr ` : `$${montlyTotalPrice}/mo `}`);
-
+    console.log('User details:', `${userDetails.name}, ${userDetails.email}, ${userDetails.phone}`);
+ 
 
 
     //functions

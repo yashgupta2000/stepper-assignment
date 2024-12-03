@@ -58,7 +58,7 @@ export default function AddOns() {
 
                 {
                     Datas?.map((item) => (
-                        <div key={item.id} className={` flex border-2 w-full  lg:p-4 md:p-4 sm:p-4 p-3 rounded-md mt-4  hover:bg-gray-100 cursor-pointer hover:border-blue-500 ${selectCard.includes(item.id) ? 'border-blue-500' : 'border-gray-300'}`}>
+                        <div key={item.id} className={` flex border-2 w-full  lg:p-4 md:p-4 sm:p-4 p-3 rounded-md mt-4 lg: hover:border-blue-500  cursor-pointer ${selectCard.includes(item.id) ? 'border-blue-500' : 'border-gray-300'}`}>
                             <input
                                 type="checkbox"
                                 name={item.name}
