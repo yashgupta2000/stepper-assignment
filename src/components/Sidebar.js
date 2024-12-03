@@ -28,7 +28,7 @@ export default function Sidebar() {
     }
 
     return (
-        <div className="bg-blue-700 lg:h-screen lg:w-4/12 lg:rounded-tr-lg lg:rounded-br-lg sm:w-full sm:h-1/3   sm:rounded-none lg:pt-8">
+        <div className="bg-blue-700 lg:h-screen lg:w-4/12 lg:rounded-tr-lg lg:rounded-br-lg  sm:w-full sm:h-1/3   sm:rounded-none lg:pt-8">
 
             <div className='mb-7 pt-3 flex lg:flex-col md:flex-row sm:flex-row  w-full justify-around  '>
                 {

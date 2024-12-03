@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { isValidElement, useEffect, useState } from 'react';
 import Heading from './Heading';
 import SubHeading from './SubHeading';
 import Footer from './Footer';
@@ -19,7 +19,7 @@ export default function PersonalInfo() {
 
     //UseEffect
     useEffect(() => {
-        if (userDetails) {
+        if (userDetails) {  
             setFormData({
                 name: userDetails.name || '',
                 email: userDetails.email || '',
@@ -32,9 +32,14 @@ export default function PersonalInfo() {
     //Handling input field 
     const handleChange = (e) => {
         const { name, value } = e.target;
+
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
+        }));
+        setError((prevError) => ({
+            ...prevError,
+            [name]: "",
         }));
     };
 
