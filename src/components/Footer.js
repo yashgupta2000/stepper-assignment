@@ -69,7 +69,7 @@ export default function Footer({ name, email, phone, setError }) {
        
     };
     useEffect(() => {
-        if (formIndex === 1 || formIndex === undefined) {
+        if (formIndex === 1) {
             navigate('/');
         } 
     }, [formIndex, navigate]);
